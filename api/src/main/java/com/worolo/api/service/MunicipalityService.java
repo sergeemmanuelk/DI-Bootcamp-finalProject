@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.worolo.api.model.HealthCenter;
 import com.worolo.api.model.Municipality;
 import com.worolo.api.repository.MunicipalityRepository;
 
@@ -26,7 +25,7 @@ public class MunicipalityService {
 		return municipalityRepository.save(municipality);
 	}
 	
-	public Municipality updateMunicipality(Long id, HealthCenter updatedMunicipality) {
+	public Municipality updateMunicipality(Long id, Municipality updatedMunicipality) {
 		Municipality existingMunicipality = municipalityRepository.findById(id).orElse(null);
         if (existingMunicipality != null) {
         	existingMunicipality.setName(updatedMunicipality.getName());
@@ -39,7 +38,7 @@ public class MunicipalityService {
         return null;
 	}
 	
-	public boolean deleteHealthCenter(Long id) {
+	public boolean deleteMunicipality(Long id) {
 		Municipality existingMunicipality = municipalityRepository.findById(id).orElse(null);
         if (existingMunicipality != null) {
         	municipalityRepository.delete(existingMunicipality);
