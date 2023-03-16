@@ -13,12 +13,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import { HomeComponent } from './components/home/home.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
+import { HeroComponent } from './components/hero/hero.component';
+import { LoginComponent } from './pages/auth/login/login.component';
+import { RegisterComponent } from './pages/auth/register/register.component';
 
 registerLocaleData(fr);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    NavbarComponent,
+    HeroComponent,
+    LoginComponent,
+    RegisterComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
