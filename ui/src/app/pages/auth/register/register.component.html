@@ -5,24 +5,25 @@
 				<div class="card-body p-5">
 					<h1 class="card-title mb-1">S'inscrire</h1>
 					<p>Vous avez déjà un compte ? <a routerLink="/login" class="ms-1">S'identifier</a></p>
+					<div class="alert alert-danger" *ngIf="!!error"> {{error}}</div>
 					<form>
 						<div class="mb-3">
 							<label for="lastname" class="form-label">Nom</label>
-							<input type="text" class="form-control" id="lastname" placeholder="Saisir votre nom">
+							<input type="text" class="form-control" id="lastname" placeholder="Saisir votre nom" [(ngModel)]="person.lastName">
 						</div>
 						<div class="mb-3">
 							<label for="firstname" class="form-label">Prénom(s)</label>
-							<input type="text" class="form-control" id="firstname" placeholder="Saisir votre prénom">
+							<input type="text" class="form-control" id="firstname" placeholder="Saisir votre prénom" [(ngModel)]="person.firstName">
 						</div>
 						<div class="mb-3">
 							<label for="email" class="form-label">Email</label>
-							<input type="email" class="form-control" id="email" placeholder="Adresse email">
+							<input type="email" class="form-control" id="email" placeholder="Adresse email" [(ngModel)]="person.email">
 						</div>
 						<div class="mb-3">
 							<label for="password" class="form-label">Mot de passe</label>
-							<input type="password" class="form-control" id="password" placeholder="***********">
+							<input type="password" class="form-control" id="password" placeholder="***********" [(ngModel)]="person.password">
 						</div>
-						<button type="submit" class="btn btn-primary w-100">S'inscrire</button>
+						<button type="submit" class="btn btn-primary w-100" (click)="register()">S'inscrire</button>
 					</form>
 				</div>
 			</div>
