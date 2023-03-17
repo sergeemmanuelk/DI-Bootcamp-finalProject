@@ -13,9 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.worolo.api.model.Citizen;
-import com.worolo.api.model.Person;
 import com.worolo.api.service.CitizenService;
-import com.worolo.api.service.PersonService;
 
 @RestController
 @RequestMapping("/api/citoyen")
@@ -29,22 +27,22 @@ public class CitizenController {
 	}
 	
 	@GetMapping("/{id}")
-	public Person getPersonById(@PathVariable Long id) {
-		return personService.getPersonById(id);
+	public Citizen getCitizenById(@PathVariable Long id) {
+		return citizenService.getCitizenById(id);
 	}
 	
 	@PostMapping
-	public Person createPerson(@RequestBody Person person) {
-		return personService.createPerson(person);
+	public Citizen createCitizen(@RequestBody Citizen citizen) {
+		return citizenService.createCitizen(citizen);
 	}
 	
 	@PutMapping("/{id}")
-	public Person updatePerson(@PathVariable Long id, @RequestBody Person updatedPerson) {
-		return personService.updatePerson(id, updatedPerson);
+	public Citizen updateCitizen(@PathVariable Long id, @RequestBody Citizen updatedCitizen) {
+		return citizenService.updateCitizen(id, updatedCitizen);
 	}
 	
 	@DeleteMapping("/{id}")
-	public boolean deletePerson(@PathVariable Long id) {
-		return personService.deletePerson(id);
+	public boolean deleteCitizen(@PathVariable Long id) {
+		return citizenService.deleteCitizen(id);
 	}
 }
