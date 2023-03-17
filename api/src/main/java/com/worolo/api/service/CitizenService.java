@@ -14,7 +14,7 @@ public class CitizenService {
 	@Autowired
 	private CitizenRepository citizenRepository;
 	
-	public List<Citizen> getAllCItizen() {
+	public List<Citizen> getAllCitizen() {
 		return citizenRepository.findAll();
 	}
 	
