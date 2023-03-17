@@ -32,6 +32,7 @@ public class HealthCenterService {
         	existingHealthCenter.setPhoneNumber(updatedHealthCenter.getPhoneNumber());
         	existingHealthCenter.setAddress(updatedHealthCenter.getAddress());
         	existingHealthCenter.setEmail(updatedHealthCenter.getEmail());
+        	existingHealthCenter.setPassword(updatedHealthCenter.getPassword());
             
             return hcRepository.save(existingHealthCenter);
         }
