@@ -12,37 +12,37 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.worolo.api.model.Citizen;
-import com.worolo.api.service.UserService;
+import com.worolo.api.model.Person;
+import com.worolo.api.service.PersonService;
 
 @RestController
 @RequestMapping("/api/user")
-public class UserController {
+public class PersonController {
 	@Autowired
-	private UserService userService;
+	private PersonService personService;
 	
 	@GetMapping
-	public List<Citizen> getAllUser() {
-		return userService.getAllUser();
+	public List<Person> getAllPerson() {
+		return personService.getAllPerson();
 	}
 	
 	@GetMapping("/{id}")
-	public Citizen getUserById(@PathVariable Long id) {
-		return userService.getUserById(id);
+	public Person getPersonById(@PathVariable Long id) {
+		return personService.getPersonById(id);
 	}
 	
 	@PostMapping
-	public Citizen createUser(@RequestBody Citizen user) {
-		return userService.createUser(user);
+	public Person createPerson(@RequestBody Person person) {
+		return personService.createPerson(person);
 	}
 	
 	@PutMapping("/{id}")
-	public Citizen updateUser(@PathVariable Long id, @RequestBody Citizen updatedUser) {
-		return userService.updateUser(id, updatedUser);
+	public Person updatePerson(@PathVariable Long id, @RequestBody Person updatedPerson) {
+		return personService.updatePerson(id, updatedPerson);
 	}
 	
 	@DeleteMapping("/{id}")
-	public boolean deleteUser(@PathVariable Long id) {
-		return userService.deleteUser(id);
+	public boolean deletePerson(@PathVariable Long id) {
+		return personService.deletePerson(id);
 	}
 }
