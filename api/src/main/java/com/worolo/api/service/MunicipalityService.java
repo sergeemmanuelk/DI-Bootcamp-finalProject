@@ -29,9 +29,6 @@ public class MunicipalityService {
 		Municipality existingMunicipality = municipalityRepository.findById(id).orElse(null);
         if (existingMunicipality != null) {
         	existingMunicipality.setName(updatedMunicipality.getName());
-        	existingMunicipality.setPhoneNumber(updatedMunicipality.getPhoneNumber());
-        	existingMunicipality.setAddress(updatedMunicipality.getAddress());
-        	existingMunicipality.setEmail(updatedMunicipality.getEmail());
             
             return municipalityRepository.save(existingMunicipality);
         }
