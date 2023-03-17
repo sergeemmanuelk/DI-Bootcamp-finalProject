@@ -5,46 +5,43 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.worolo.api.model.Citizen;
-import com.worolo.api.repository.UserRepository;
+import com.worolo.api.model.Person;
+import com.worolo.api.repository.PersonRepository;
 
 @Service
-public class UserService {
+public class PersonService {
 	@Autowired
-	private UserRepository userRepository;
+	private PersonRepository personRepository;
 	
-	public List<Citizen> getAllUser() {
-		return userRepository.findAll();
+	public List<Person> getAllPerson() {
+		return personRepository.findAll();
 	}
 	
-	public Citizen getUserById(Long id) {
-		return userRepository.findById(id).orElse(null);
+	public Person getPersonById(Long id) {
+		return personRepository.findById(id).orElse(null);
 	}
 	
-	public Citizen createUser(Citizen user) {
-		return userRepository.save(user);
+	public Person createPerson(Person person) {
+		return personRepository.save(person);
 	}
 	
-	public Citizen updateUser(Long id, Citizen updatedUser) {
-		Citizen existingUser = userRepository.findById(id).orElse(null);
-        if (existingUser != null) {
-        	existingUser.setGender(updatedUser.getGender());
-        	existingUser.setFirstName(updatedUser.getFirstName());
-        	existingUser.setLastName(updatedUser.getLastName());
-        	existingUser.setEmail(updatedUser.getEmail());
-        	existingUser.setPassword(updatedUser.getPassword());
-        	existingUser.setPhoneNumber(updatedUser.getPhoneNumber());
-        	existingUser.setAddress(updatedUser.getAddress());
+	public Person updatePerson(Long id, Person updatedPerson) {
+		Person existingPerson = personRepository.findById(id).orElse(null);
+        if (existingPerson != null) {
+        	existingPerson.setEmail(updatedPerson.getEmail());
+        	existingPerson.setPassword(updatedPerson.getPassword());
+        	existingPerson.setPhoneNumber(updatedPerson.getPhoneNumber());
+        	existingPerson.setAddress(updatedPerson.getAddress());
             
-            return userRepository.save(existingUser);
+            return personRepository.save(existingPerson);
         }
         return null;
 	}
 	
-	public boolean deleteUser(Long id) {
-		Citizen existingUser = userRepository.findById(id).orElse(null);
-        if (existingUser != null) {
-            userRepository.delete(existingUser);
+	public boolean deletePerson(Long id) {
+		Person existingPerson = personRepository.findById(id).orElse(null);
+        if (existingPerson != null) {
+            personRepository.delete(existingPerson);
             return true;
         }
         return false;
