@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.worolo.api.model.Citizen;
 
 @Repository
-public interface UserRepository extends JpaRepository<Citizen, Long> {
+public interface PersonRepository extends JpaRepository<Citizen, Long> {
 
 }
