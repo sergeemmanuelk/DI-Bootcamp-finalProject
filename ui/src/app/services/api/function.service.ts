@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpService } from "./api.service";
 import { url_path } from "src/app/constants/app.constant";
-import { IUser } from "src/app/interfaces/user";
+import { IPerson } from "src/app/interfaces/person";
 import { IMunicipality } from "src/app/interfaces/municipality";
 import { IHealthCenter } from "src/app/interfaces/healthCenter";
 
@@ -12,23 +12,23 @@ export class FunctionService {
 
 	constructor(private httpService : HttpService ) {  }
 
-	getUser() {
-		return this.httpService.get(url_path.USER_BASE);
+	getPerson() {
+		return this.httpService.get(url_path.PERSON_BASE);
 	}
 
-	createUser(user : IUser) {
-	return this.httpService.post({endpoint : url_path.USER_BASE,data : user});
+	createPerson(person : IPerson) {
+	return this.httpService.post({endpoint : url_path.PERSON_BASE,data : person});
 	}
 
-	updateUser(user : IUser) {
-		return this.httpService.put({endpoint : url_path.USER_BASE,data : user});
+	updatePerson(person : IPerson) {
+		return this.httpService.put({endpoint : url_path.PERSON_BASE,data : person});
 	}
 
-	deleteUser(id : string) {
-		return this.httpService.delete(`${url_path.USER_BASE}/${id}`);
+	deletePerson(id : string) {
+		return this.httpService.delete(`${url_path.PERSON_BASE}/${id}`);
 	}
 
-	getMunicipality() {
+	/* getMunicipality() {
 		return this.httpService.get(url_path.MUNICIPALITY_BASE);
 	}
 
@@ -58,6 +58,6 @@ export class FunctionService {
 	
 	deleteHealthCenter(id : string) {
 		return this.httpService.delete(`${url_path.HEALTH_CENTER_BASE}/${id}`);
-	}
+	} */
 
 }
