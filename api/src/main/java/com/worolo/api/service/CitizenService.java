@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.worolo.api.model.Citizen;
-import com.worolo.api.model.Person;
 import com.worolo.api.repository.CitizenRepository;
 
 @Service
