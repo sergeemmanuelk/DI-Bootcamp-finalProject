@@ -22,6 +22,6 @@ public class CertificateType {
 	private String name;
 	
 	@OneToMany(mappedBy = "certificateType")
-	private List<Certificate> certificate;
+	private List<Document> certificate;
 	
 }

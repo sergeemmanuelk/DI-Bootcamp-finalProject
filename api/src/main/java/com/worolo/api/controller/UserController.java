@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.worolo.api.model.User;
+import com.worolo.api.model.Citizen;
 import com.worolo.api.service.UserService;
 
 @RestController
@@ -22,22 +22,22 @@ public class UserController {
 	private UserService userService;
 	
 	@GetMapping
-	public List<User> getAllUser() {
+	public List<Citizen> getAllUser() {
 		return userService.getAllUser();
 	}
 	
 	@GetMapping("/{id}")
-	public User getUserById(@PathVariable Long id) {
+	public Citizen getUserById(@PathVariable Long id) {
 		return userService.getUserById(id);
 	}
 	
 	@PostMapping
-	public User createUser(@RequestBody User user) {
+	public Citizen createUser(@RequestBody Citizen user) {
 		return userService.createUser(user);
 	}
 	
 	@PutMapping("/{id}")
-	public User updateUser(@PathVariable Long id, @RequestBody User updatedUser) {
+	public Citizen updateUser(@PathVariable Long id, @RequestBody Citizen updatedUser) {
 		return userService.updateUser(id, updatedUser);
 	}
 	

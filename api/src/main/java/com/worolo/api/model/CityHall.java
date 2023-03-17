@@ -5,22 +5,21 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
-
 @Entity
-@Table(name = "health_centers")
-public class HealthCenter extends Person {
+@Table(name = "city_halls")
+public class CityHall extends Person {
 	
 	@Column(nullable = false)
 	private String name;
-	
+
 	@ManyToOne
 	private Municipality municipality;
-
-	public HealthCenter() {
+	
+	public CityHall() {
 		super();
 	}
 
-	public HealthCenter(String name) {
+	public CityHall(String name) {
 		super();
 		this.name = name;
 	}
@@ -32,5 +31,6 @@ public class HealthCenter extends Person {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
+	
 }

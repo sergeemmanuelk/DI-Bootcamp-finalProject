@@ -10,12 +10,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import lombok.Data;
 
-@Data
 @Entity
-@Table(name = "certificates")
-public class Certificate {
+@Table(name = "documents")
+public class Document {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,12 +42,12 @@ public class Certificate {
 	private Date requestDate;
 	
 	@ManyToOne
-	private User user;
+	private Citizen user;
 	
 	@ManyToOne
 	private CertificateType certificateType;
 	
-	@OneToOne(mappedBy = "certificate")
+	@OneToOne(mappedBy = "document")
 	private Payment payment;
 	
 	@ManyToOne

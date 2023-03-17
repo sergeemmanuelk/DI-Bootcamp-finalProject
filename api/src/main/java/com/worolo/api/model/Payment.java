@@ -27,6 +27,6 @@ public class Payment {
 	private PaymentMethod paymentMethod;
 	
 	@OneToOne
-	private Certificate certificate;
+	private Document document;
 	
 }

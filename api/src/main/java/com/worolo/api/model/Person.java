@@ -1,58 +1,62 @@
 package com.worolo.api.model;
 
-import java.util.List;
+import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name = "users")
-public class User {
+@Table(name = "persons")
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class Person {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private char gender;
-	
-	@Column(name = "first_name")
-	private String firstName;
-	
-	@Column(name = "last_name") 
-	private String lastName;
-	   
+	@Column(nullable = false, unique = true)
 	private String email;
-	   
+	
+	@Column(nullable = false)
 	private String password;
-	   
+	
+	@Column(nullable = false)
 	private int phoneNumber;
-	   
+	
 	private String address;
 	
-	@OneToMany(mappedBy = "user")
-	private List<Certificate> certificate;
+	@Column(name = "created_at", nullable = false)
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date createdAt;
 	
-
-	public User() {
+	@Column(name = "updated_at")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date updatedAt;
+	
+	@ManyToOne
+	private Role role;
+	
+	public Person() {
 		super();
 	}
 
-	public User(Long id, char gender, String firstName, String lastName, String email, String password, int phoneNumber,
-			String address) {
+	public Person(Long id, String email, String password, int phoneNumber, String address, Date createdAt, Date updatedAt) {
 		super();
 		this.id = id;
-		this.gender = gender;
-		this.firstName = firstName;
-		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
 		this.phoneNumber = phoneNumber;
 		this.address = address;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
 	}
 
 	public Long getId() {
@@ -61,30 +65,6 @@ public class User {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public char getGender() {
-		return gender;
-	}
-
-	public void setGender(char gender) {
-		this.gender = gender;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
 	}
 
 	public String getEmail() {
@@ -119,5 +99,20 @@ public class User {
 		this.address = address;
 	}
 	
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
+	}
 	
 }

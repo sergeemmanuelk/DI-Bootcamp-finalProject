@@ -2,6 +2,7 @@ package com.worolo.api.model;
 
 import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,31 +18,25 @@ public class Municipality {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(nullable = false, unique = true)
 	private String name;
-	
-	private String email;
-	
-	private int phoneNumber;
-	
-	private String address;
 	
 	@OneToMany(mappedBy = "municipality")
 	private List<HealthCenter> healthCenter;
 	
 	@OneToMany(mappedBy = "municipality")
-	private List<Certificate> certificate;
+	private List<CityHall> cityHall;
+	
+	@OneToMany(mappedBy = "municipality")
+	private List<Document> document;
 
 	public Municipality() {
 		super();
 	}
 
-	public Municipality(Long id, String name, String email, int phoneNumber, String address) {
+	public Municipality(String name) {
 		super();
-		this.id = id;
 		this.name = name;
-		this.email = email;
-		this.phoneNumber = phoneNumber;
-		this.address = address;
 	}
 
 	public Long getId() {
@@ -58,30 +53,6 @@ public class Municipality {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public int getPhoneNumber() {
-		return phoneNumber;
-	}
-
-	public void setPhoneNumber(int phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
 	}
 	
 	
