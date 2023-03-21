@@ -3,6 +3,9 @@ package com.worolo.api.model;
 import java.sql.Date;
 import java.util.List;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
@@ -25,6 +28,14 @@ public class Citizen extends Person{
 	@Column(nullable = false)
 	private Date birthdate;
 	
+	@Column(name = "created_at", nullable = false)
+	@CreationTimestamp
+	private Date createdAt;
+	
+	@Column(name = "updated_at")
+	@UpdateTimestamp
+	private Date updatedAt;
+	
 	@OneToMany(mappedBy = "citizen")
 	private List<Document> document;
 	
@@ -33,12 +44,16 @@ public class Citizen extends Person{
 		super();
 	}
 
-	public Citizen(char gender, String firstName, String lastName, Date birthdate) {
+	public Citizen(char gender, String firstName, String lastName, Date birthdate, Date createdAt, Date updatedAt,
+			List<Document> document) {
 		super();
 		this.gender = gender;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.birthdate = birthdate;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
+		this.document = document;
 	}
 
 	public char getGender() {
@@ -72,5 +87,33 @@ public class Citizen extends Person{
 	public void setBirthdate(Date birthdate) {
 		this.birthdate = birthdate;
 	}
+
+	public List<Document> getDocument() {
+		return document;
+	}
+
+	public void setDocument(List<Document> document) {
+		this.document = document;
+	}
+	
+	@Override
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	@Override
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+	
+	
 	
 }
