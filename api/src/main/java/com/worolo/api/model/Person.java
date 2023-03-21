@@ -2,6 +2,9 @@ package com.worolo.api.model;
 
 import java.util.Date;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,8 +14,6 @@ import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 
 @Entity
 @Table(name = "persons")
@@ -34,11 +35,11 @@ public abstract class Person {
 	private String address;
 	
 	@Column(name = "created_at", nullable = false)
-	@Temporal(TemporalType.TIMESTAMP)
+	@CreationTimestamp
 	private Date createdAt;
 	
 	@Column(name = "updated_at")
-	@Temporal(TemporalType.TIMESTAMP)
+	@UpdateTimestamp
 	private Date updatedAt;
 	
 	@ManyToOne
@@ -48,7 +49,8 @@ public abstract class Person {
 		super();
 	}
 
-	public Person(Long id, String email, String password, int phoneNumber, String address, Date createdAt, Date updatedAt) {
+	public Person(Long id, String email, String password, int phoneNumber, String address, Date createdAt,
+			Date updatedAt, Role role) {
 		super();
 		this.id = id;
 		this.email = email;
@@ -57,6 +59,7 @@ public abstract class Person {
 		this.address = address;
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
+		this.role = role;
 	}
 
 	public Long getId() {
@@ -99,6 +102,14 @@ public abstract class Person {
 		this.address = address;
 	}
 	
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
 	public Date getCreatedAt() {
 		return createdAt;
 	}
