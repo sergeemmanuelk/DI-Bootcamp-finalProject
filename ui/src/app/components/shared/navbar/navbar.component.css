@@ -1,0 +1,28 @@
+#header {
+    background-color: #fff;
+    transition: all 0.5s;
+    z-index: 99;
+    padding: 20px 0;
+}
+
+.navbar ul li a {
+    font-weight: 600;
+    padding: 15px 10px;
+}
+
+.navbar ul li a.active {
+    color: #ffae03;
+}
+
+.navbar ul li a:hover {
+    color: #ffae03;
+}
+
+.btn-login {
+    background-color: #ffae03;
+    color: #fff;
+}
+
+.btn-login:hover {
+    background-color: #eba30c;
+}
