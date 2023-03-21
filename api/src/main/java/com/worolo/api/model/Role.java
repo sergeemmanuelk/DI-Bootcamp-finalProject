@@ -13,9 +13,17 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "roles")
+@AllArgsConstructor
+@NoArgsConstructor
+@Setter
+@Getter
 public class Role {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +32,9 @@ public class Role {
 	@Column(nullable = false, unique = true)
 	private String name;
 	
+	/*@OneToMany(mappedBy = "role")
+	private List<Person> person;*/
+	
 	@Column(name = "created_at", nullable = false)
 	@CreationTimestamp
 	private Date createdAt;
@@ -31,9 +42,6 @@ public class Role {
 	@Column(name = "updated_at")
 	@UpdateTimestamp
 	private Date updatedAt;
-	
-	@OneToMany(mappedBy = "role")
-	private List<Person> person;
 	
 	public Role() {
 		super();
@@ -45,9 +53,8 @@ public class Role {
 		this.name = name;
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
-		this.person = person;
 	}
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -59,19 +66,11 @@ public class Role {
 	public String getName() {
 		return name;
 	}
-
+	
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public List<Person> getPerson() {
-		return person;
-	}
-
-	public void setPerson(List<Person> person) {
-		this.person = person;
-	}
-
+	
 	public Date getCreatedAt() {
 		return createdAt;
 	}
