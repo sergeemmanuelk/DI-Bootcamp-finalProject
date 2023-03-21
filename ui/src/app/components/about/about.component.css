@@ -1,0 +1,20 @@
+#about {
+    padding-top: 70px;
+    padding-bottom: 50px;
+}
+
+#about h2{
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+#about ul li i {
+    font-size: 18px;
+    color: #158e3e;
+}

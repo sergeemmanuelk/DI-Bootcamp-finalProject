@@ -19,6 +19,9 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
+import { AboutComponent } from './components/about/about.component';
+import { ServiceComponent } from './components/service/service.component';
+import { NgxTypedJsModule } from 'ngx-typed-js';
 
 registerLocaleData(fr);
 
@@ -28,6 +31,8 @@ registerLocaleData(fr);
     HomeComponent,
     NavbarComponent,
     HeroComponent,
+    AboutComponent,
+    ServiceComponent,
     LoginComponent,
     RegisterComponent,
     FooterComponent
@@ -40,7 +45,8 @@ registerLocaleData(fr);
     BrowserAnimationsModule,
     IconsProviderModule,
     NzLayoutModule,
-    NzMenuModule
+    NzMenuModule,
+    NgxTypedJsModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: fr_FR }
