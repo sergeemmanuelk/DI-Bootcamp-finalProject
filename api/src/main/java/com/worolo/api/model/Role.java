@@ -3,6 +3,9 @@ package com.worolo.api.model;
 import java.util.Date;
 import java.util.List;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,8 +13,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 
 @Entity
 @Table(name = "roles")
@@ -24,11 +25,11 @@ public class Role {
 	private String name;
 	
 	@Column(name = "created_at", nullable = false)
-	@Temporal(TemporalType.TIMESTAMP)
+	@CreationTimestamp
 	private Date createdAt;
 	
 	@Column(name = "updated_at")
-	@Temporal(TemporalType.TIMESTAMP)
+	@UpdateTimestamp
 	private Date updatedAt;
 	
 	@OneToMany(mappedBy = "role")
@@ -38,12 +39,13 @@ public class Role {
 		super();
 	}
 
-	public Role(Long id, String name, Date createdAt, Date updatedAt) {
+	public Role(Long id, String name, Date createdAt, Date updatedAt, List<Person> person) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
+		this.person = person;
 	}
 
 	public Long getId() {
@@ -60,6 +62,14 @@ public class Role {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public List<Person> getPerson() {
+		return person;
+	}
+
+	public void setPerson(List<Person> person) {
+		this.person = person;
 	}
 
 	public Date getCreatedAt() {

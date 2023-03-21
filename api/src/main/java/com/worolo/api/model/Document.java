@@ -42,7 +42,7 @@ public class Document {
 	private Date requestDate;
 	
 	@ManyToOne
-	private Citizen user;
+	private Citizen citizen;
 	
 	@ManyToOne
 	private CertificateType certificateType;
