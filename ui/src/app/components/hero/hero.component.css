@@ -1,0 +1,18 @@
+.bg-hero {
+    background-color: #DDE1E4;
+    border-radius: 5px;
+}
+
+.btn-hero {
+    background-color: #ffae03;
+    color: #fff;
+}
+
+.btn-hero:hover {
+    background-color: #eba30c;
+}
+
+.hero-text-typing {
+    color: #158e3e;
+}
+

@@ -1,1 +1,27 @@
-<p>hero works!</p>
+<div class="container col-xxl-8 px-4 py-5 bg-hero">
+    <div class="row flex-lg-row-reverse justify-content-center align-items-center g-5 py-5">
+        <div class="col-10 col-sm-8 col-lg-6">
+            <img src="/assets/img/hero.jpg" class="d-block mx-lg-auto img-fluid rounded" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+        </div>
+        <div class="col-lg-6">
+            <h1 class="display-5 fw-bold lh-1 mb-3">Etat civil en ligne</h1>
+            <ngx-typed-js [strings]="['naissance.', 'décès.']" 
+                [loop]="true"
+                [typeSpeed]="90"
+                [backSpeed]="30"
+                [backDelay]="2000"
+                [showCursor]="true"
+                [autoInsertCss]="true"
+            >
+                <h3 class="display-5">Acte de <span class="typing hero-text-typing"></span></h3>
+            </ngx-typed-js>
+            
+            <p class="lead">Demandez votre document en ligne sans vous deplacer</p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                <a class="btn btn-hero btn-lg px-4 me-md-2">Faire une demande</a>
+            </div>
+        </div>
+    </div>
+    
+</div>
+  
